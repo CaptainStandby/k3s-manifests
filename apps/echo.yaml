@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test-app
+  name: echo-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -20,8 +20,8 @@ spec:
   source:
     repoURL: https://github.com/CaptainStandby/k3s-manifests.git
     targetRevision: main
-    path: manifests/test
+    path: manifests/echo
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: test-app
+    namespace: echo-app

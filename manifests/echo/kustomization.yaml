@@ -8,4 +8,4 @@ resources:
 - echo.yaml
 - namespace.yaml
 
-namespace: test-app
+namespace: echo-app
