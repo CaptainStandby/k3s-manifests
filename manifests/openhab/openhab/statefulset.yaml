@@ -11,6 +11,8 @@ spec:
       containers:
       - image: openhab/openhab
         name: openhab
+        command:
+        - /openhab/start.sh
         env:
         - name: CRYPTO_POLICY
           value: unlimited
