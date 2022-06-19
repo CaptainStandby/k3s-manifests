@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openhab
+spec:
+  template:
+    spec:
+      containers:
+      - image: openhab/openhab
+        name: openhab
+        env:
+        - name: CRYPTO_POLICY
+          value: unlimited
+        ports:
+        - containerPort: 8080
+          name: http
+        volumeMounts:
+        - name: openhab-data
+          mountPath: /openhab/userdata
+        - name: openhab-conf
+          mountPath: /openhab/conf
+      volumes:
+      - name: openhab-data
+        persistentVolumeClaim:
+          claimName: openhab-pvc-data
+      - name: openhab-conf
+        persistentVolumeClaim:
+          claimName: openhab-pvc-conf
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: openhab-pvc-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: nfs-client
+  resources:
+    requests:
+      storage: 128Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: openhab-pvc-conf
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: nfs-client
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: openhab
+spec:
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: openhab
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: openhab.cluster.hlnr.de
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: openhab
+            port:
+              name: http
