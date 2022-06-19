@@ -20,6 +20,14 @@ spec:
           value: '9001'
         - name: GROUP_ID
           value: '9001'
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http
         ports:
         - containerPort: 8080
           name: http
