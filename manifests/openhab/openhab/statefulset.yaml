@@ -34,15 +34,21 @@ spec:
         volumeMounts:
         - name: openhab-data
           mountPath: /openhab/userdata
+        - name: openhab-addons
+          mountPath: /openhab/addons
         - name: openhab-conf
           mountPath: /openhab/conf
         - name: etc-localtime
           mountPath: /etc/localtime
+        - name: config-services
+          mountPath: /openhab/conf/services
       volumes:
       - name: openhab-data
         emptyDir: {}
         # persistentVolumeClaim:
         #   claimName: openhab-pvc-data
+      - name: openhab-addons
+        emptyDir: {}
       - name: openhab-conf
         emptyDir: {}
         # persistentVolumeClaim:
@@ -50,6 +56,9 @@ spec:
       - name: etc-localtime
         hostPath:
           path: /usr/share/zoneinfo/Europe/Berlin
+      - name: config-services
+        configMap:
+          name: openhab-config-services
 # ---
 # apiVersion: v1
 # kind: PersistentVolumeClaim

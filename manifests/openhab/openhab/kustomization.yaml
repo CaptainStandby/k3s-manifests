@@ -7,3 +7,9 @@ commonLabels:
 resources:
 - statefulset.yaml
 
+
+configMapGenerator:
+- files:
+  - config/services/addons.cfg
+  - config/services/runtime.cfg
+  name: openhab-config-services
