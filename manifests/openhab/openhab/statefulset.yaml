@@ -11,6 +11,8 @@ spec:
         env:
         - name: CRYPTO_POLICY
           value: unlimited
+        - name: TZ
+          value: Europe/Berlin
         ports:
         - containerPort: 8080
           name: http
@@ -19,6 +21,8 @@ spec:
           mountPath: /openhab/userdata
         - name: openhab-conf
           mountPath: /openhab/conf
+        - name: etc-localtime
+          mountPath: /etc/localtime
       volumes:
       - name: openhab-data
         persistentVolumeClaim:
@@ -26,6 +30,9 @@ spec:
       - name: openhab-conf
         persistentVolumeClaim:
           claimName: openhab-pvc-conf
+      - name: etc-localtime
+        hostPath:
+          path: /usr/share/zoneinfo/Europe/Berlin
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
