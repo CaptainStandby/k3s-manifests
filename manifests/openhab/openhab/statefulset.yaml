@@ -11,7 +11,8 @@ spec:
         name: init-openhab
         command:
         - /entrypoint
-        - ;
+        - echo
+        - 'init done'
         env:
         - name: CRYPTO_POLICY
           value: unlimited
