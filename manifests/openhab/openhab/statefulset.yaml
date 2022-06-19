@@ -31,38 +31,40 @@ spec:
           mountPath: /etc/localtime
       volumes:
       - name: openhab-data
-        persistentVolumeClaim:
-          claimName: openhab-pvc-data
+        emptyDir: {}
+        # persistentVolumeClaim:
+        #   claimName: openhab-pvc-data
       - name: openhab-conf
-        persistentVolumeClaim:
-          claimName: openhab-pvc-conf
+        emptyDir: {}
+        # persistentVolumeClaim:
+        #   claimName: openhab-pvc-conf
       - name: etc-localtime
         hostPath:
           path: /usr/share/zoneinfo/Europe/Berlin
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: openhab-pvc-data
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: nfs-client
-  resources:
-    requests:
-      storage: 128Gi
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: openhab-pvc-conf
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: nfs-client
-  resources:
-    requests:
-      storage: 1Gi
+# ---
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: openhab-pvc-data
+# spec:
+#   accessModes:
+#     - ReadWriteOnce
+#   storageClassName: nfs-client
+#   resources:
+#     requests:
+#       storage: 128Gi
+# ---
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: openhab-pvc-conf
+# spec:
+#   accessModes:
+#     - ReadWriteOnce
+#   storageClassName: nfs-client
+#   resources:
+#     requests:
+#       storage: 1Gi
 ---
 apiVersion: v1
 kind: Service
