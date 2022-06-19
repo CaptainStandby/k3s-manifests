@@ -6,13 +6,32 @@ spec:
   serviceName: openhab
   template:
     spec:
-      securityContext:
-        fsGroup: 9001
+      initContainers:
+      - image: openhab/openhab
+        name: init-openhab
+        command:
+        - /entrypoint
+        - ;
+        env:
+        - name: CRYPTO_POLICY
+          value: unlimited
+        - name: USER_ID
+          value: '9001'
+        - name: GROUP_ID
+          value: '9001'
+        volumeMounts:
+        - name: openhab-data
+          mountPath: /openhab/userdata
+        - name: openhab-addons
+          mountPath: /openhab/addons
+        - name: openhab-conf
+          mountPath: /openhab/conf
       containers:
       - image: openhab/openhab
         name: openhab
         command:
         - /openhab/start.sh
+        - server
         env:
         - name: CRYPTO_POLICY
           value: unlimited
@@ -22,6 +41,14 @@ spec:
           value: '9001'
         - name: GROUP_ID
           value: '9001'
+        securityContext:
+          seccompProfile:
+            type: RuntimeDefault
+          runAsUser: 9001
+          runAsGroup: 9001
+          runAsNonRoot: true
+          privileged: false
+          allowPrivilegeEscalation: false
         readinessProbe:
           httpGet:
             path: /
