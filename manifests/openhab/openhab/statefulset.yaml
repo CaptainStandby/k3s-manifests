@@ -5,6 +5,8 @@ metadata:
 spec:
   template:
     spec:
+      securityContext:
+        fsGroup: 9001
       containers:
       - image: openhab/openhab
         name: openhab
@@ -13,6 +15,10 @@ spec:
           value: unlimited
         - name: TZ
           value: Europe/Berlin
+        - name: USER_ID
+          value: '9001'
+        - name: GROUP_ID
+          value: '9001'
         ports:
         - containerPort: 8080
           name: http
