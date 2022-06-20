@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  app: influxdb
+
+patches:
+- add-config.yaml
+- add-pvc.yaml
+
+resources:
+- base
+# - volume-claims.yaml
+- ingress.yaml # for testing

@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: influxdb
+spec:
+  template:
+    spec:
+      volumes:
+      - name: influxdb-data
+        emptyDir: {}
+        # persistentVolumeClaim:
+        #   claimName: influxdb-pvc-data

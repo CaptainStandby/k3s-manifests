@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: influxdb
+spec:
+  serviceName: influxdb
+  template:
+    spec:
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+        fsGroup: 1000
+        runAsGroup: 1000
+        runAsUser: 1000
+      containers:
+      - image: influxdb
+        name: influxdb
+        securityContext:
+          runAsNonRoot: true
+          privileged: false
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - all
+        ports:
+        - containerPort: 8086
+          name: http
+        volumeMounts:
+        - name: influxdb-data
+          mountPath: /var/lib/influxdb2

@@ -1,0 +1,12 @@
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: influxdb-pvc-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: nfs-client
+  resources:
+    requests:
+      storage: 128Gi
