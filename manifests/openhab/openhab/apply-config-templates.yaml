@@ -22,7 +22,12 @@ spec:
         volumeMounts:
         - name: config-templates
           mountPath: /templates
+        - name: config-services
+          mountPath: /openhab/conf/services
       volumes:
       - name: config-templates
         configMap:
           name: openhab-config-templates
+      - name: config-services
+        configMap:
+          name: openhab-config-services
