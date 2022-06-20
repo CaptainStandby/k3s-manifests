@@ -13,7 +13,7 @@ spec:
           - name: DOCKER_INFLUXDB_INIT_USERNAME
             value: admin
           - name: DOCKER_INFLUXDB_INIT_PASSWORD
-            value: qwertz # TODO: Change this
+            value: qwertz1234!@ # TODO: Change this
           - name: DOCKER_INFLUXDB_INIT_ORG
             value: main
           - name: DOCKER_INFLUXDB_INIT_BUCKET
