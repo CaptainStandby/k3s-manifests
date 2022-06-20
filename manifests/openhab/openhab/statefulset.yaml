@@ -58,7 +58,6 @@ spec:
           httpGet:
             path: /
             port: http
-            host: localhost
         # livenessProbe:
         #   initialDelaySeconds: 60
         #   httpGet:
@@ -127,7 +126,7 @@ metadata:
 spec:
   ports:
   - name: http
-    port: 80
+    port: 8080
     targetPort: 8080
 ---
 apiVersion: networking.k8s.io/v1
