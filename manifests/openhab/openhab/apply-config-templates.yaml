@@ -18,7 +18,7 @@ spec:
         - /bin/sh
         - -c
         - |-
-          cat /templates/influxdb.cfg.template | sed "s/\${INFLUXDB_ADMIN_TOKEN}/$INFLUXDB_ADMIN_TOKEN/" > /openhab/conf/services/influxdb.cfg
+          cat /templates/influxdb.cfg.template | sed "s/\${INFLUXDB_ADMIN_TOKEN}/$(printf '%s\n' "$INFLUXDB_ADMIN_TOKEN" | sed -e 's/[\/&]/\\&/g')/" > /openhab/conf/services/influxdb.cfg
         volumeMounts:
         - name: config-templates
           mountPath: /templates
