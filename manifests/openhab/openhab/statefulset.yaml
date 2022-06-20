@@ -48,27 +48,23 @@ spec:
         # - name: GROUP_ID
         #   value: '9001'
         securityContext:
-          # seccompProfile:
-          #   type: RuntimeDefault
-          # runAsUser: 9001
-          # runAsGroup: 9001
           runAsNonRoot: true
           privileged: false
           allowPrivilegeEscalation: false
           capabilities:
             drop:
             - all
-        # readinessProbe:
-        #   timeoutSeconds: 3
-        #   httpGet:
-        #     path: /
-        #     port: http
-        # livenessProbe:
-        #   timeoutSeconds: 3
-        #   initialDelaySeconds: 60
-        #   httpGet:
-        #     path: /
-        #     port: http
+        readinessProbe:
+          timeoutSeconds: 3
+          httpGet:
+            path: /
+            port: http
+        livenessProbe:
+          timeoutSeconds: 3
+          initialDelaySeconds: 60
+          httpGet:
+            path: /
+            port: http
         ports:
         - containerPort: 8080
           name: http
