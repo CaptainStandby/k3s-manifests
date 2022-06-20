@@ -13,12 +13,14 @@ spec:
         runAsGroup: 9001
         runAsUser: 9001
       initContainers:
-      - image: busybox
+      - image: openhab/openhab
         name: init-directories
         command:
-        - sh
+        - /bin/sh
         - -c
         - |-
+          [ -z "$(ls -A "/openhab/userdata")" ] && cp -av "/openhab/dist/userdata/." "/openhab/userdata/";
+          [ -z "$(ls -A "/openhab/conf")" ] && cp -av "/openhab/dist/conf/." "/openhab/conf/";
           touch /openhab/addons/.placeholder /openhab/conf/.placeholder;
           mkdir -p /openhab/userdata/cache /openhab/userdata/logs /openhab/userdata/persistence /openhab/userdata/tmp
         volumeMounts:
