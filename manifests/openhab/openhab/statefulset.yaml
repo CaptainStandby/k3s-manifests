@@ -53,14 +53,15 @@ spec:
           capabilities:
             drop:
             - all
-        # readinessProbe:
-        #   httpGet:
-        #     path: /
-        #     port: http
-        # livenessProbe:
-        #   httpGet:
-        #     path: /
-        #     port: http
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http
+        livenessProbe:
+          initialDelaySeconds: 60
+          httpGet:
+            path: /
+            port: http
         ports:
         - containerPort: 8080
           name: http
