@@ -23,6 +23,6 @@ spec:
         - name: config-templates
           mountPath: /templates
       volumes:
-      - name: config-services
+      - name: config-templates
         configMap:
           name: openhab-config-templates
