@@ -20,6 +20,12 @@ spec:
           mountPath: /openhab/conf/transform
         - name: etc-localtime
           mountPath: /etc/localtime
+        env:
+        - name: INFLUXDB_ADMIN_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: influxdb-secrets
+              key: admin.token
       volumes:
       - name: config-services
         configMap:

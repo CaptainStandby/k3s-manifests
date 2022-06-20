@@ -18,6 +18,7 @@ configMapGenerator:
   files:
   - config/services/addons.cfg
   - config/services/runtime.cfg
+  - config/services/influxdb.cfg
 
 - name: openhab-config-persistence
   files:
