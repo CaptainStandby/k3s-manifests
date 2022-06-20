@@ -12,7 +12,7 @@ resources:
 patches:
 - add-config.yaml
 - add-pvc.yaml
-- apply-config-templates
+- apply-config-templates.yaml
 
 configMapGenerator:
 - name: openhab-config-services
