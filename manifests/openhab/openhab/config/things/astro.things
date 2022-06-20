@@ -1,0 +1,2 @@
+Thing astro:moon:local "Moon" [ geolocation="54.605592965766085,9.931124214790525,16", interval=60 ]
+Thing astro:sun:local  "Sun"  [ geolocation="54.605592965766085,9.931124214790525,16", interval=60 ]

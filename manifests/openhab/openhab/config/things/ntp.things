@@ -1,0 +1,1 @@
+ntp:ntp:local  [ hostname="de.pool.ntp.org" ]

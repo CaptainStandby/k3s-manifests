@@ -1,0 +1,16 @@
+Group Astro <sun_clouds>
+
+DateTime         Sunrise_Time      "Sunrise [%1$tH:%1$tM]"                           <sunrise> (Astro) {channel="astro:sun:local:rise#start"}
+DateTime         Sunset_Time       "Sunset [%1$tH:%1$tM]"                            <sunset>  (Astro) {channel="astro:sun:local:set#start"}
+DateTime         CivilDawn_Time    "Dawn [%1$tH:%1$tM]"                                        (Astro) {channel="astro:sun:local:civilDawn#start"}
+DateTime         CivilDusk_Time    "Dusk [%1$tH:%1$tM]"                                        (Astro) {channel="astro:sun:local:civilDusk#start"}
+String           Day_Phase         "Phase of Day [MAP(astro_de.map):%s]"                       (Astro) {channel="astro:sun:local:phase#name"}
+Number:Intensity Total_Radiation   "Radiation [%.2f %unit%]"                                   (Astro) {channel="astro:sun:local:radiation#total"}
+Number:Intensity Diffuse_Radiation "Diffuse Radiation [%.2f %unit%]"                           (Astro) {channel="astro:sun:local:radiation#diffuse"}
+Number:Intensity Direct_Radiation  "Direct Radiation [%.2f %unit%]"                            (Astro) {channel="astro:sun:local:radiation#direct"}
+String           Season_Name       "Season [MAP(astro_de.map):%s]"                             (Astro) {channel="astro:sun:local:season#name"}
+Number:Angle     Sun_Elevation     "Sun Elevation [%.1f °]"                          <sun>     (Astro) {channel="astro:sun:local:position#elevation"}
+String           Moon_Phase        "Moon Phase [MAP(astro_de.map):%s]"               <moon>    (Astro) {channel="astro:moon:local:phase#name" }
+DateTime         Moon_Next_Full    "Next Full Moon [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" <moon>    (Astro) {channel="astro:moon:local:phase#full"}
+DateTime         Moon_Next_New     "Next New Moon [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]"  <moon>    (Astro) {channel="astro:moon:local:phase#new"}
+Number:Angle     Moon_Elevation    "Moon Elevation [%.1f °]"                         <moon>    (Astro) {channel="astro:moon:local:position#elevation"}

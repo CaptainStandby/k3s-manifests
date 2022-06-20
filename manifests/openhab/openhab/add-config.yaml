@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: openhab
+spec:
+  serviceName: openhab
+  template:
+    spec:
+      containers:
+      - name: openhab
+        volumeMounts:
+        - name: config-services
+          mountPath: /openhab/conf/services
+        - name: config-persistence
+          mountPath: /openhab/conf/persistence
+        - name: config-items
+          mountPath: /openhab/conf/items
+        - name: config-things
+          mountPath: /openhab/conf/things
+        - name: config-transform
+          mountPath: /openhab/conf/transform
+      volumes:
+      - name: config-services
+        configMap:
+          name: openhab-config-services
+      - name: config-persistence
+        configMap:
+          name: openhab-config-persistence
+      - name: config-items
+        configMap:
+          name: openhab-config-items
+      - name: config-things
+        configMap:
+          name: openhab-config-things
+      - name: config-transform
+        configMap:
+          name: openhab-config-transform

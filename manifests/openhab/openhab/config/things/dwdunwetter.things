@@ -1,0 +1,17 @@
+dwdunwetter:dwdwarnings:winnemark "Warnings Winnemark" [ cellId="801058174", refresh=15, warningCount=1 ]
+dwdunwetter:dwdwarnings:damp "Warnings Damp" [ cellId="801058040", refresh=15, warningCount=1 ]
+dwdunwetter:dwdwarnings:ostsee "Warnings Ostsee" [ cellId="901200000", refresh=15, warningCount=1 ]
+dwdunwetter:dwdwarnings:rendseck "Warnings Rendsburg-Eckernförde" [ cellId="101058000", refresh=15, warningCount=1 ]
+dwdunwetter:dwdwarnings:hamburg "Warnings Hamburg" [ cellId="102000000", refresh=15, warningCount=1 ]
+
+// 101058000;Kreis Rendsburg-Eckernförde;DEF0B;Rendsburg;
+// 102000000;Hansestadt Hamburg;DE600;Hansest.Hamburg;HHX
+// 801058040;Gemeinde Damp;;Damp;
+// 801058174;Gemeinde Winnemark;;Winnemark;
+// 802000000;Stadt Hamburg;;Hamburg;
+// 901058001;Kreis Rendsburg-Eckernförde - Binnenland;;Rendsb.-Eck.-Bi;RDI
+// 901058002;Kreis Rendsburg-Eckernförde - Küste;;Rendsb.-Eck.-Kü;RDK
+// 901200000;Schleswig-Holstein - Ostsee;;Schl.-H. Ostsee;RHO
+// 902000000;Hamburg;;Hamburg;DWHH
+// 902100000;Hamburg;;Hamburg;HHH
+// 993000000;Schleswig-Holstein/Hamburg;;Schleswig-H./HH;DWHC

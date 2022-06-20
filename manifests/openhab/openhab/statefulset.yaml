@@ -76,10 +76,6 @@ spec:
           mountPath: /openhab/conf
         - name: etc-localtime
           mountPath: /etc/localtime
-        - name: config-services
-          mountPath: /openhab/conf/services
-        - name: config-persistence
-          mountPath: /openhab/conf/persistence
       volumes:
       - name: openhab-data
         emptyDir: {}
@@ -94,12 +90,6 @@ spec:
       - name: etc-localtime
         hostPath:
           path: /usr/share/zoneinfo/Europe/Berlin
-      - name: config-services
-        configMap:
-          name: openhab-config-services
-      - name: config-persistence
-        configMap:
-          name: openhab-config-persistence
 # ---
 # apiVersion: v1
 # kind: PersistentVolumeClaim

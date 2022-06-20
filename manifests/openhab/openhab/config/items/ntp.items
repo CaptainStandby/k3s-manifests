@@ -1,0 +1,1 @@
+DateTime    Current_DateTime     "Today [%1$tA, %1$td.%1$tm.%1$tY]"                <clock>  {channel="ntp:ntp:local:dateTime"}

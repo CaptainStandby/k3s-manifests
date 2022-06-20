@@ -1,0 +1,12 @@
+Group         WarnWetterWinnemark                                                            <alarm>
+
+Switch        WarningWinnemark_1             "Weather warning [MAP(dwdunwetter_de.map):%s]"  <alarm>  (WarnWetterWinnemark)  { channel="dwdunwetter:dwdwarnings:winnemark:warning1" }
+String        WarningWinnemarkServerity_1    "Severity [MAP(dwdunwetter_de.map):%s]"                  (WarnWetterWinnemark)  { channel="dwdunwetter:dwdwarnings:winnemark:severity1" }
+String        WarningWinnemarkBeschreibung_1 "[%s]"                                                   (WarnWetterWinnemark)  { channel="dwdunwetter:dwdwarnings:winnemark:description1" }
+DateTime      WarningWinnemarkAusgabedatum_1 "Issued at [%s]"                                         (WarnWetterWinnemark)  { channel="dwdunwetter:dwdwarnings:winnemark:effective1" }
+DateTime      WarningWinnemarkGueltigAb_1    "Valid from [%s]"                                        (WarnWetterWinnemark)  { channel="dwdunwetter:dwdwarnings:winnemark:onset1" }
+DateTime      WarningWinnemarkGueltigBis_1   "Valid to [%s]"                                          (WarnWetterWinnemark)  { channel="dwdunwetter:dwdwarnings:winnemark:expires1" }
+String        WarningWinnemarkTyp_1          "Event [%s]"                                             (WarnWetterWinnemark)  { channel="dwdunwetter:dwdwarnings:winnemark:event1" }
+String        WarningWinnemarkTitel_1        "[%s]"                                                   (WarnWetterWinnemark)  { channel="dwdunwetter:dwdwarnings:winnemark:headline1" }
+String        WarningWinnemarkUrgency_1      "[MAP(dwdunwetter_de.map):%s]"                           (WarnWetterWinnemark)  { channel="dwdunwetter:dwdwarnings:winnemark:urgency1" }
+String        WarningWinnemarkInstruction_1  "Additional information: [%s]"                           (WarnWetterWinnemark)  { channel="dwdunwetter:dwdwarnings:winnemark:instruction1" }

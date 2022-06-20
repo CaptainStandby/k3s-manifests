@@ -1,0 +1,10 @@
+ON=aktiv
+OFF=inaktiv
+NULL=undefiniert
+UNDEF=undefiniert
+Minor=Wetterwarnung
+Moderate=Markante Wetterwarnung
+Severe=Unwetterwarnung
+Extreme=Extreme Unwetterwarnung
+Immediate=Warnung
+Future=Vorabinformation
