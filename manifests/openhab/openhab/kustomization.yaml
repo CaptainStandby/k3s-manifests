@@ -12,13 +12,17 @@ resources:
 patches:
 - add-config.yaml
 - add-pvc.yaml
+- apply-config-templates
 
 configMapGenerator:
 - name: openhab-config-services
   files:
   - config/services/addons.cfg
   - config/services/runtime.cfg
-  - config/services/influxdb.cfg
+
+- name: openhab-config-templates
+  files:
+  - config/templates/influxdb.cfg.template
 
 - name: openhab-config-persistence
   files:

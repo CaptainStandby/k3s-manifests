@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: openhab
+spec:
+  template:
+    spec:
+      initContainers:
+      - image: openhab/openhab
+        name: apply-templates
+        env:
+        - name: INFLUXDB_ADMIN_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: influxdb-secrets
+              key: admin.token
+        command:
+        - /bin/sh
+        - -c
+        - |-
+          cat /templates/influxdb.cfg.template | sed "s/\${INFLUXDB_ADMIN_TOKEN}/$INFLUXDB_ADMIN_TOKEN/" > /openhab/conf/services/influxdb.cfg
+        volumeMounts:
+        - name: config-templates
+          mountPath: /templates
+      volumes:
+      - name: config-services
+        configMap:
+          name: openhab-config-templates
