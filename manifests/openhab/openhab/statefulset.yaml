@@ -54,14 +54,16 @@ spec:
             drop:
             - all
         readinessProbe:
+          timeoutSeconds: 3
           httpGet:
             path: /
             port: http
-        livenessProbe:
-          initialDelaySeconds: 60
-          httpGet:
-            path: /
-            port: http
+            host: localhost
+        # livenessProbe:
+        #   initialDelaySeconds: 60
+        #   httpGet:
+        #     path: /
+        #     port: http
         ports:
         - containerPort: 8080
           name: http
