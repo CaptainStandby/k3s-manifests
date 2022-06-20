@@ -19,6 +19,8 @@ spec:
           mountPath: /openhab/conf/things
         - name: config-transform
           mountPath: /openhab/conf/transform
+        - name: etc-localtime
+          mountPath: /etc/localtime
       volumes:
       - name: config-services
         configMap:
@@ -35,3 +37,6 @@ spec:
       - name: config-transform
         configMap:
           name: openhab-config-transform
+      - name: etc-localtime
+        hostPath:
+          path: /usr/share/zoneinfo/Europe/Berlin

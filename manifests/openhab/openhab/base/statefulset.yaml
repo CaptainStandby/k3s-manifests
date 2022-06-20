@@ -38,15 +38,6 @@ spec:
         command:
         - /openhab/start.sh
         - server
-        # env:
-        # - name: CRYPTO_POLICY
-        #   value: unlimited
-        # - name: TZ
-        #   value: Europe/Berlin
-        # - name: USER_ID
-        #   value: '9001'
-        # - name: GROUP_ID
-        #   value: '9001'
         securityContext:
           runAsNonRoot: true
           privileged: false
@@ -75,57 +66,3 @@ spec:
           mountPath: /openhab/addons
         - name: openhab-conf
           mountPath: /openhab/conf
-        - name: etc-localtime
-          mountPath: /etc/localtime
-      volumes:
-      - name: openhab-data
-        persistentVolumeClaim:
-          claimName: openhab-pvc-data
-        # emptyDir: {}
-      - name: openhab-addons
-        persistentVolumeClaim:
-          claimName: openhab-pvc-addons
-        # emptyDir: {}
-      - name: openhab-conf
-        persistentVolumeClaim:
-          claimName: openhab-pvc-conf
-        # emptyDir: {}
-      - name: etc-localtime
-        hostPath:
-          path: /usr/share/zoneinfo/Europe/Berlin
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: openhab-pvc-data
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: nfs-client
-  resources:
-    requests:
-      storage: 128Gi
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: openhab-pvc-conf
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: nfs-client
-  resources:
-    requests:
-      storage: 1Gi
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: openhab-pvc-addons
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: nfs-client
-  resources:
-    requests:
-      storage: 1Gi

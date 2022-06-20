@@ -5,12 +5,13 @@ commonLabels:
   app: openhab
 
 resources:
-- statefulset.yaml
-- service.yaml
+- base
 - ingress.yaml
+- volume-claims.yaml
 
 patches:
 - add-config.yaml
+- add-pvc.yaml
 
 configMapGenerator:
 - name: openhab-config-services

@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: openhab
+spec:
+  serviceName: openhab
+  template:
+    spec:
+      volumes:
+      - name: openhab-data
+        persistentVolumeClaim:
+          claimName: openhab-pvc-data
+      - name: openhab-addons
+        persistentVolumeClaim:
+          claimName: openhab-pvc-addons
+      - name: openhab-conf
+        persistentVolumeClaim:
+          claimName: openhab-pvc-conf
