@@ -19,6 +19,8 @@ spec:
         - /bin/sh
         - -c
         - |-
+          rm -f "/openhab/runtime/instances/instance.properties";
+          rm -f "/openhab/userdata/tmp/instances/instance.properties";
           [ -z "$(ls -A "/openhab/userdata")" ] && cp -av "/openhab/dist/userdata/." "/openhab/userdata/";
           [ -z "$(ls -A "/openhab/conf")" ] && cp -av "/openhab/dist/conf/." "/openhab/conf/";
           touch /openhab/addons/.placeholder /openhab/conf/.placeholder;
