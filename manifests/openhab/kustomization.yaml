@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
 - openhab
 - influxdb
+- secrets
 
 namespace: openhab
 
