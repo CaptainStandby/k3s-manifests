@@ -1,0 +1,22 @@
+Strategies {
+	everyMinute : "0 * * * * ?"
+	everyHour   : "0 0 * * * ?"
+	everyDay    : "0 0 0 * * ?"
+
+	// if no strategy is specified for an Item entry below, the default list will be used
+	default = everyChange
+}
+
+/*
+ * Each line in this section defines for which Item(s) which strategy(ies) should be applied.
+ * You can list single items, use "*" for all items or "groupitem*" for all members of a group
+ * Item (excl. the group Item itself).
+ */
+Items {
+	* : strategy = everyMinute
+	// persist the Item state of Heating_Mode and Notifications_Active on every change and restore them from the db at startup
+	// Heating_Mode, Notifications_Active: strategy = everyChange, restoreOnStartup
+
+	// additionally, persist all temperature and weather values every hour
+	// Temperature*, Weather* : strategy = everyHour
+}

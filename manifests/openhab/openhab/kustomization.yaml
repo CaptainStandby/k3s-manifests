@@ -6,10 +6,14 @@ commonLabels:
 
 resources:
 - statefulset.yaml
-
+- service.yaml
+- ingress.yaml
 
 configMapGenerator:
 - files:
   - config/services/addons.cfg
   - config/services/runtime.cfg
   name: openhab-config-services
+- files:
+  - config/persistence/influxdb.persist
+  name: openhab-config-persistence
