@@ -50,14 +50,17 @@ spec:
           runAsNonRoot: true
           privileged: false
           allowPrivilegeEscalation: false
-        readinessProbe:
-          httpGet:
-            path: /
-            port: http
-        livenessProbe:
-          httpGet:
-            path: /
-            port: http
+          capabilities:
+            drop:
+            - all
+        # readinessProbe:
+        #   httpGet:
+        #     path: /
+        #     port: http
+        # livenessProbe:
+        #   httpGet:
+        #     path: /
+        #     port: http
         ports:
         - containerPort: 8080
           name: http
