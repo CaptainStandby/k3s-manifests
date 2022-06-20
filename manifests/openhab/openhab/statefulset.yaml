@@ -6,20 +6,21 @@ spec:
   serviceName: openhab
   template:
     spec:
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+        fsGroup: 9001
+        runAsGroup: 9001
+        runAsUser: 9001
       initContainers:
-      - image: openhab/openhab
-        name: init-openhab
+      - image: busybox
+        name: init-directories
         command:
-        - /entrypoint
-        - echo
-        - 'init done'
-        env:
-        - name: CRYPTO_POLICY
-          value: unlimited
-        - name: USER_ID
-          value: '9001'
-        - name: GROUP_ID
-          value: '9001'
+        - sh
+        - -c
+        - |-
+          touch /openhab/addons/.placeholder /openhab/conf/.placeholder;
+          mkdir -p /openhab/userdata/cache /openhab/userdata/logs /openhab/userdata/persistence /openhab/userdata/tmp
         volumeMounts:
         - name: openhab-data
           mountPath: /openhab/userdata
@@ -33,20 +34,20 @@ spec:
         command:
         - /openhab/start.sh
         - server
-        env:
-        - name: CRYPTO_POLICY
-          value: unlimited
-        - name: TZ
-          value: Europe/Berlin
-        - name: USER_ID
-          value: '9001'
-        - name: GROUP_ID
-          value: '9001'
+        # env:
+        # - name: CRYPTO_POLICY
+        #   value: unlimited
+        # - name: TZ
+        #   value: Europe/Berlin
+        # - name: USER_ID
+        #   value: '9001'
+        # - name: GROUP_ID
+        #   value: '9001'
         securityContext:
-          seccompProfile:
-            type: RuntimeDefault
-          runAsUser: 9001
-          runAsGroup: 9001
+          # seccompProfile:
+          #   type: RuntimeDefault
+          # runAsUser: 9001
+          # runAsGroup: 9001
           runAsNonRoot: true
           privileged: false
           allowPrivilegeEscalation: false
@@ -78,39 +79,53 @@ spec:
           mountPath: /etc/localtime
       volumes:
       - name: openhab-data
-        emptyDir: {}
-        # persistentVolumeClaim:
-        #   claimName: openhab-pvc-data
+        persistentVolumeClaim:
+          claimName: openhab-pvc-data
+        # emptyDir: {}
       - name: openhab-addons
-        emptyDir: {}
+        persistentVolumeClaim:
+          claimName: openhab-pvc-addons
+        # emptyDir: {}
       - name: openhab-conf
-        emptyDir: {}
-        # persistentVolumeClaim:
-        #   claimName: openhab-pvc-conf
+        persistentVolumeClaim:
+          claimName: openhab-pvc-conf
+        # emptyDir: {}
       - name: etc-localtime
         hostPath:
           path: /usr/share/zoneinfo/Europe/Berlin
-# ---
-# apiVersion: v1
-# kind: PersistentVolumeClaim
-# metadata:
-#   name: openhab-pvc-data
-# spec:
-#   accessModes:
-#     - ReadWriteOnce
-#   storageClassName: nfs-client
-#   resources:
-#     requests:
-#       storage: 128Gi
-# ---
-# apiVersion: v1
-# kind: PersistentVolumeClaim
-# metadata:
-#   name: openhab-pvc-conf
-# spec:
-#   accessModes:
-#     - ReadWriteOnce
-#   storageClassName: nfs-client
-#   resources:
-#     requests:
-#       storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: openhab-pvc-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: nfs-client
+  resources:
+    requests:
+      storage: 128Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: openhab-pvc-conf
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: nfs-client
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: openhab-pvc-addons
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: nfs-client
+  resources:
+    requests:
+      storage: 1Gi
