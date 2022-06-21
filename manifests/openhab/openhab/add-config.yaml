@@ -7,6 +7,12 @@ spec:
     spec:
       containers:
       - name: openhab
+        env:
+        - name: INFLUXDB_ADMIN_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: influxdb-secrets
+              key: admin.token
         volumeMounts:
         - name: config-services
           mountPath: /openhab/conf/services

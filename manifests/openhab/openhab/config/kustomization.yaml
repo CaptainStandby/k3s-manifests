@@ -6,6 +6,7 @@ configMapGenerator:
   files:
   - services/addons.cfg
   - services/runtime.cfg
+  - services/influxdb.cfg
 
 - name: openhab-config-templates
   files:
