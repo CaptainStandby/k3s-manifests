@@ -8,6 +8,10 @@ spec:
       securityContext:
         seccompProfile:
           type: RuntimeDefault
+        fsGroup: 1000
+        runAsGroup: 1000
+        runAsUser: 1000
+        runAsNonRoot: true
       containers:
       - image: captainstandby/analog_gauge_reader
         name: analog-gauge-reader
@@ -41,9 +45,9 @@ spec:
         - mountPath: /config
           name: config
         securityContext:
-          runAsNonRoot: true
           privileged: false
           allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
           capabilities:
             drop:
             - all
