@@ -10,5 +10,5 @@ patches:
 
 resources:
 - base
-# - volume-claims.yaml
+# - pvc.yaml
 - ingress.yaml # for testing
