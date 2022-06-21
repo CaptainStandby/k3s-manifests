@@ -6,6 +6,13 @@ spec:
   serviceName: prometheus
   template:
     spec:
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+        fsGroup: 1000
+        runAsGroup: 1000
+        runAsUser: 1000
+        runAsNonRoot: true
       containers:
       - args:
         - --config.file=/etc/prometheus/prometheus.yaml
@@ -22,6 +29,13 @@ spec:
           subPath: config.yaml
         - name: data
           mountPath: /data
+        securityContext:
+          privileged: false
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - all
       volumes:
       - name: config
         configMap:
