@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
 - analog-gauge-reader
 - prometheus
+- grafana
 - namespace.yaml
 
 namespace: analog-gauge-reader
@@ -14,3 +15,5 @@ images:
   digest: sha256:d683fa9bbb5cd97abf317fc147c4bf5313feebebb122ce6ed0dbf051f471aeac
 - name: prom/prometheus
   newTag: v2.36.2
+- name: grafana/grafana-oss
+  newTag: 9.0.1

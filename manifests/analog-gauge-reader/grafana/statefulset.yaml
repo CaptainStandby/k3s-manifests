@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: grafana
+spec:
+  serviceName: grafana
+  template:
+    spec:
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+        fsGroup: 472
+        runAsGroup: 472
+        runAsUser: 472
+        runAsNonRoot: true
+      containers:
+      - image: grafana/grafana-oss
+        name: grafana
+        ports:
+        - name: http
+          containerPort: 3000
+        volumeMounts:
+        - name: datasources
+          mountPath: /etc/grafana/provisioning/datasources
+        - name: dashboards
+          mountPath: /etc/grafana/provisioning/dashboards
+        - name: config
+          mountPath: /etc/grafana/grafana.ini
+          subPath: grafana.ini
+        - name: data
+          mountPath: /var/lib/grafana
+        securityContext:
+          privileged: false
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - all
+      volumes:
+      - name: config
+        configMap:
+          name: grafana-config
+      - name: dashboards
+        configMap:
+          name: grafana-dashboards
+      - name: datasources
+        configMap:
+          name: grafana-datasources
+      - name: data
+        persistentVolumeClaim:
+          claimName: grafana-pvc-data
