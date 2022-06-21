@@ -10,6 +10,7 @@ configMapGenerator:
 - name: openhab-config-templates
   files:
   - templates/influxdb.cfg.template
+  - templates/apply_templates.sh
 
 - name: openhab-config-persistence
   files:

@@ -13,4 +13,4 @@ resources:
 patches:
 - add-config.yaml
 - add-pvc.yaml
-- apply-config-templates.yaml
+- apply-templates.yaml

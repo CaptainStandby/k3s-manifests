@@ -5,9 +5,8 @@ metadata:
 spec:
   template:
     spec:
-      initContainers:
-      - image: openhab/openhab
-        name: apply-templates
+      containers:
+      - name: openhab
         env:
         - name: INFLUXDB_ADMIN_TOKEN
           valueFrom:
@@ -17,13 +16,10 @@ spec:
         command:
         - /bin/sh
         - -c
-        - |-
-          cat /templates/influxdb.cfg.template | sed "s/\${INFLUXDB_ADMIN_TOKEN}/$(printf '%s\n' "$INFLUXDB_ADMIN_TOKEN" | sed -e 's/[\/&]/\\&/g')/" > /openhab/conf/services/influxdb.cfg
+        - sh /templates/apply_templates.sh && /openhab/start.sh server
         volumeMounts:
         - name: config-templates
           mountPath: /templates
-        - name: openhab-conf
-          mountPath: /openhab/conf
       volumes:
       - name: config-templates
         configMap:
