@@ -21,6 +21,8 @@ spec:
         - serve
         - /config/gauges.json
         env:
+        - name: INTERVAL_SECONDS
+          value: '15'
         - name: STREAM_USER
           valueFrom:
             secretKeyRef:
