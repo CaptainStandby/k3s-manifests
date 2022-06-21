@@ -1,0 +1,29 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  app: analog-gauge-reader
+
+resources:
+- ../../_common/sealed-secrets
+- analog-gauge-camera.yaml
+- deployment.yaml
+- service.yaml
+
+
+configMapGenerator:
+- name: analog-gauge-config
+  files:
+  - gauges.json
+
+# generate empty secrets to provide hashed names for deployments
+secretGenerator:
+- files:
+  - dummy=analog-gauge-camera.yaml
+  name: analog-gauge-camera
+  options:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      sealedsecrets.bitnami.com/managed: "true"
+      sealedsecrets.bitnami.com/namespace-wide: "true"
+  type: Opaque

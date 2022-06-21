@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: analog-gauge-reader
+spec:
+  template:
+    spec:
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - image: captainstandby/analog_gauge_reader
+        name: analog-gauge-reader
+        command:
+        - serve
+        - /config/gauges.json
+        env:
+        - name: STREAM_USER
+          valueFrom:
+            secretKeyRef:
+              name: analog-gauge-camera
+              key: stream.user
+        - name: STREAM_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: analog-gauge-camera
+              key: stream.password
+        - name: STREAM_HOST
+          valueFrom:
+            secretKeyRef:
+              name: analog-gauge-camera
+              key: stream.host
+        - name: STREAM_URL
+          value: rtsp://$(STREAM_USER):$(STREAM_PASSWORD)@$(STREAM_HOST):8554/Streaming/Channels/101
+        - name: PYTHONUNBUFFERED
+          value: '1'
+        ports:
+        - containerPort: 8000
+          name: metrics
+        volumeMounts:
+        - mountPath: /config
+          name: config
+        securityContext:
+          runAsNonRoot: true
+          privileged: false
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - all
+      volumes:
+      - name: config
+        configMap:
+          name: analog-gauge-config

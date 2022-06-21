@@ -1,0 +1,42 @@
+[
+	{
+		"name": "Vorlauf",
+		"rect": {
+			"x": 814,
+			"y": 128,
+			"width": 518,
+			"height": 503
+		},
+		"angles": {
+			"min": 50,
+			"max": 317
+		},
+		"values": {
+			"min": 0,
+			"max": 120
+		},
+		"location": "Bockholz 2",
+		"unit": "Celsius",
+		"rotation": "ROTATE_180"
+	},
+	{
+		"name": "Ruecklauf",
+		"rect": {
+			"x": 368,
+			"y": 363,
+			"width": 505,
+			"height": 495
+		},
+		"angles": {
+			"min": 40,
+			"max": 315
+		},
+		"values": {
+			"min": 0,
+			"max": 120
+		},
+		"location": "Bockholz 2",
+		"unit": "Celsius",
+		"rotation": "ROTATE_180"
+	}
+]
