@@ -23,7 +23,6 @@ spec:
           rm -f "/openhab/userdata/tmp/instances/instance.properties";
           [ -z "$(ls -A "/openhab/userdata")" ] && cp -av "/openhab/dist/userdata/." "/openhab/userdata/";
           [ -z "$(ls -A "/openhab/conf")" ] && cp -av "/openhab/dist/conf/." "/openhab/conf/";
-          touch /openhab/addons/.placeholder /openhab/conf/.placeholder;
           mkdir -p /openhab/userdata/cache /openhab/userdata/logs /openhab/userdata/persistence /openhab/userdata/tmp
         volumeMounts:
         - name: openhab-data
@@ -45,17 +44,17 @@ spec:
           capabilities:
             drop:
             - all
-        # readinessProbe:
-        #   timeoutSeconds: 3
-        #   httpGet:
-        #     path: /
-        #     port: http
-        # livenessProbe:
-        #   timeoutSeconds: 3
-        #   initialDelaySeconds: 60
-        #   httpGet:
-        #     path: /
-        #     port: http
+        livenessProbe:
+          timeoutSeconds: 5
+          periodSeconds: 15
+          httpGet:
+            path: /
+            port: http
+        startupProbe:
+          timeoutSeconds: 3
+          httpGet:
+            path: /
+            port: http
         ports:
         - containerPort: 8080
           name: http
