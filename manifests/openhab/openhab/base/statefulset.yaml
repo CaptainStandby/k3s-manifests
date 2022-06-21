@@ -44,17 +44,17 @@ spec:
           capabilities:
             drop:
             - all
-        livenessProbe:
-          timeoutSeconds: 5
-          periodSeconds: 15
-          httpGet:
-            path: /
-            port: http
-        startupProbe:
-          timeoutSeconds: 3
-          httpGet:
-            path: /
-            port: http
+        # livenessProbe:
+        #   timeoutSeconds: 5
+        #   periodSeconds: 15
+        #   httpGet:
+        #     path: /
+        #     port: http
+        # startupProbe:
+        #   timeoutSeconds: 3
+        #   httpGet:
+        #     path: /
+        #     port: http
         ports:
         - containerPort: 8080
           name: http
