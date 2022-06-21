@@ -10,3 +10,4 @@ namespace: analog-gauge-reader
 images:
 - name: captainstandby/analog_gauge_reader
   newName: ghcr.io/captainstandby/analog_gauge_reader:master
+  digest: sha256:d683fa9bbb5cd97abf317fc147c4bf5313feebebb122ce6ed0dbf051f471aeac
