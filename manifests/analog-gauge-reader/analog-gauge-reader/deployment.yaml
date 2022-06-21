@@ -16,6 +16,8 @@ spec:
       - image: captainstandby/analog_gauge_reader
         name: analog-gauge-reader
         command:
+        - python3
+        - server.py
         - serve
         - /config/gauges.json
         env:
