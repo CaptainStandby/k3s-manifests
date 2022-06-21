@@ -6,6 +6,7 @@ commonLabels:
 
 resources:
 - base
+- config
 - ingress.yaml
 - volume-claims.yaml
 
@@ -13,36 +14,3 @@ patches:
 - add-config.yaml
 - add-pvc.yaml
 - apply-config-templates.yaml
-
-configMapGenerator:
-- name: openhab-config-services
-  files:
-  - config/services/addons.cfg
-  - config/services/runtime.cfg
-
-- name: openhab-config-templates
-  files:
-  - config/templates/influxdb.cfg.template
-
-- name: openhab-config-persistence
-  files:
-  - config/persistence/influxdb.persist
-
-- name: openhab-config-things
-  files:
-  - config/things/astro.things
-  - config/things/dwdunwetter.things
-  - config/things/ntp.things
-
-- name: openhab-config-items
-  files:
-  - config/items/astro.items
-  - config/items/dwdunwetter.items
-  - config/items/ntp.items
-
-- name: openhab-config-transform
-  files:
-  - config/transform/astro_de.map
-  - config/transform/de.map
-  - config/transform/dwdunwetter_de.map
-  - config/transform/en.map
