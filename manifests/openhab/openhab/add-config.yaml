@@ -23,36 +23,9 @@ spec:
         - -c
         - >-
           export DEBIAN_FRONTEND=noninteractive ;
-          apt-get update && apt-get -y install --no-install-recommends gettext-base tree &&
-          ls -la /src-conf/* &&
-          tree /src-conf &&
-          tree /dst-conf &&
+          apt-get update && apt-get -y install --no-install-recommends gettext-base && rm -rf /var/lib/apt/lists/* ;
           /init-scripts/init_config.sh /src-conf /dst-conf ;
-          echo "finished" ;
-          tree /dst-conf
-        volumeMounts:
-        - name: conf
-          mountPath: /dst-conf
-        - name: init-scripts
-          mountPath: /init-scripts
-        - name: config-services
-          mountPath: /src-conf/services
-        - name: config-persistence
-          mountPath: /src-conf/persistence
-        - name: config-items
-          mountPath: /src-conf/items
-        - name: config-things
-          mountPath: /src-conf/things
-        - name: config-transform
-          mountPath: /src-conf/transform
-      containers:
-      - image: ubuntu
-        name: debug
-        securityContext:
-          runAsUser: 0
-          runAsGroup: 0
-          runAsNonRoot: false
-        command: [sleep, '3600']
+          echo "finished initializing config"
         volumeMounts:
         - name: conf
           mountPath: /dst-conf

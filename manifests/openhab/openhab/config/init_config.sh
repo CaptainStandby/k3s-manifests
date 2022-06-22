@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex
+set -e
 
 SRC_DIR="${1:?'Please provide a source directory'}"
 DST_DIR="${2:?'Please provide a destination directory'}"
@@ -20,9 +20,12 @@ find -L "$SRC_DIR/" -type f -not -xtype f -print0 | while IFS= read -r -d $'\0' 
 	mkdir -p "$dst_dir"
 
 	if [ "$ext" = ".template" ]; then
-		file_no_ext="${file_name%.*}"
-		envsubst < "$file" > "$dst_dir/$file_no_ext"
+		dst="$dst_dir/${file_name%.*}"
+		echo "running envsubst '$file' --> '$dst'"
+		envsubst < "$file" > "$dst"
 	else
-		cp -v "$file" "$dst_dir/$file_name"
+		dst="$dst_dir/$file_name"
+		echo "copying file '$file' --> '$dst'"
+		cp "$file" "$dst"
 	fi
 done
