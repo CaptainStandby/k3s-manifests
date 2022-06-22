@@ -39,7 +39,7 @@ Group gBockholz2Terrace  "Bockholz 2 - Terasse"      <terrace> (gBockholz2Outdoo
 
 // Bockholz 4
 
-Group gBockholz4 "Bockholz 4" ["Apartment"]
+Group gBockholz4 "Bockholz 4" (gBockholz) ["Apartment"]
 
 // Inside
 Group gBockholz4Indoor      "Bockholz 4 - Innenraum"                  (gBockholz4)       ["Indoor"]
