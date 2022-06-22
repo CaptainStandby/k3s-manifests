@@ -28,8 +28,6 @@ spec:
           mountPath: /openhab/userdata
         - name: addons
           mountPath: /openhab/addons
-        - name: conf
-          mountPath: /openhab/conf
       containers:
       - image: openhab/openhab
         name: openhab
@@ -62,5 +60,3 @@ spec:
           mountPath: /openhab/userdata
         - name: addons
           mountPath: /openhab/addons
-        - name: conf
-          mountPath: /openhab/conf

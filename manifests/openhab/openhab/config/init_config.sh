@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 SRC_DIR="${1:?'Please provide a source directory'}"
 DST_DIR="${2:?'Please provide a destination directory'}"
@@ -23,6 +23,6 @@ find "$SRC_DIR/" -type f -print0 | while IFS= read -r -d $'\0' file; do
 		file_no_ext="${file_name%.*}"
 		envsubst < "$file" > "$dst_dir/$file_no_ext"
 	else
-		cp "$file" "$dst_dir/$file_name"
+		cp -v "$file" "$dst_dir/$file_name"
 	fi
 done
