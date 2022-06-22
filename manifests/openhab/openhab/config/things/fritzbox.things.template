@@ -1,3 +1,13 @@
 Bridge avmfritz:fritzbox:winnemark_fb "FRITZ!Box 7530" [ ipAddress="${FRITZBOX_IP}", password="${FRITZBOX_PASSWORD}", user="${FRITZBOX_USER}" ] {
-    Thing FRITZ_DECT_301 thermostat_office "Thermostat Arbeitszimmer" @ "Office" [ ain="099950773293" ]
+    Thing FRITZ_DECT_301 thermostat_office      "Thermostat Arbeitszimmer" @ "Office"     [ ain="099950773293" ]
+    Thing FRITZ_DECT_301 thermostat_kitchen1    "Thermostat Kueche 1"      @ "Kitchen"    [ ain="099950787482" ]
+    Thing FRITZ_DECT_301 thermostat_kitchen2    "Thermostat Kueche 2"      @ "Kitchen"    [ ain="099950785846" ]
+    Thing FRITZ_DECT_301 thermostat_livingroom1 "Thermostat Wohnzimmer 1"  @ "LivingRoom" [ ain="099950738136" ]
+    Thing FRITZ_DECT_301 thermostat_livingroom2 "Thermostat Wohnzimmer 2"  @ "LivingRoom" [ ain="099950726782" ]
+    Thing FRITZ_DECT_301 thermostat_bedroom     "Thermostat Schlafzimmer"  @ "Bedroom"    [ ain="099950787451" ]
+
+    Thing FRITZ_DECT_200 outlet_entry   "Steckdose Diele"         @ "Entry"     [ ain="116300292290" ]
+    Thing FRITZ_DECT_200 outlet_office  "Steckdose Arbeitszimmer" @ "Office"    [ ain="116300285125" ]
+    Thing FRITZ_DECT_200 outlet_guest   "Steckdose Gaestezimmer"  @ "GuestRoom" [ ain="116300292300" ]
+    Thing FRITZ_DECT_210 outlet_outdoor "Steckdose Draussen"      @ "Outdoor"   [ ain="116570466101" ]
 }
