@@ -5,13 +5,12 @@ configMapGenerator:
 - name: openhab-config-services
   files:
   - services/addons.cfg
+  - services/influxdb.cfg.template
   - services/runtime.cfg
-  - services/influxdb.cfg
 
-- name: openhab-config-templates
+- name: openhab-init-scripts
   files:
-  - templates/influxdb.cfg.template
-  - templates/apply_templates.sh
+  - init_config.sh
 
 - name: openhab-config-persistence
   files:

@@ -5,28 +5,52 @@ metadata:
 spec:
   template:
     spec:
-      containers:
-      - name: openhab
+      initContainers:
+      - image: ubuntu
+        name: init-conf
         env:
         - name: INFLUXDB_ADMIN_TOKEN
           valueFrom:
             secretKeyRef:
               name: influxdb-secrets
               key: admin.token
+        command:
+        - /bin/sh
+        - -c
+        - |-
+          export DEBIAN_FRONTEND=noninteractive ;
+          apt-get update && apt-get -y install --no-install-recommends gettext-base && /init-scripts/init_config.sh /src-conf /dst-conf
+          
         volumeMounts:
+        - name: conf
+          mountPath: /dst-conf
+        - name: init-scripts
+          mountPath: /init-scripts
         - name: config-services
-          mountPath: /openhab/conf/services
+          mountPath: /src-conf/services
         - name: config-persistence
-          mountPath: /openhab/conf/persistence
+          mountPath: /src-conf/persistence
         - name: config-items
-          mountPath: /openhab/conf/items
+          mountPath: /src-conf/items
         - name: config-things
-          mountPath: /openhab/conf/things
+          mountPath: /src-conf/things
         - name: config-transform
-          mountPath: /openhab/conf/transform
+          mountPath: /src-conf/transform
+      containers:
+      - name: openhab
+        volumeMounts:
         - name: etc-localtime
           mountPath: /etc/localtime
+        - name: conf
+          readOnly: true
+          mountPath: /openhab/conf
       volumes:
+      - name: conf
+        emptyDir: {}
+      - name: init-scripts
+        configMap:
+          name: openhab-init-scripts
+          defaultMode: 0555
       - name: config-services
         configMap:
           name: openhab-config-services

@@ -6,12 +6,9 @@ spec:
   template:
     spec:
       volumes:
-      - name: openhab-data
+      - name: userdata
         persistentVolumeClaim:
           claimName: openhab-pvc-data
-      - name: openhab-addons
+      - name: addons
         persistentVolumeClaim:
           claimName: openhab-pvc-addons
-      - name: openhab-conf
-        persistentVolumeClaim:
-          claimName: openhab-pvc-conf

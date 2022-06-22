@@ -22,14 +22,13 @@ spec:
           rm -f "/openhab/runtime/instances/instance.properties";
           rm -f "/openhab/userdata/tmp/instances/instance.properties";
           [ -z "$(ls -A "/openhab/userdata")" ] && cp -av "/openhab/dist/userdata/." "/openhab/userdata/";
-          [ -z "$(ls -A "/openhab/conf")" ] && cp -av "/openhab/dist/conf/." "/openhab/conf/";
           mkdir -p /openhab/userdata/cache /openhab/userdata/logs /openhab/userdata/persistence /openhab/userdata/tmp
         volumeMounts:
-        - name: openhab-data
+        - name: userdata
           mountPath: /openhab/userdata
-        - name: openhab-addons
+        - name: addons
           mountPath: /openhab/addons
-        - name: openhab-conf
+        - name: conf
           mountPath: /openhab/conf
       containers:
       - image: openhab/openhab
@@ -59,9 +58,9 @@ spec:
         - containerPort: 8080
           name: http
         volumeMounts:
-        - name: openhab-data
+        - name: userdata
           mountPath: /openhab/userdata
-        - name: openhab-addons
+        - name: addons
           mountPath: /openhab/addons
-        - name: openhab-conf
+        - name: conf
           mountPath: /openhab/conf
