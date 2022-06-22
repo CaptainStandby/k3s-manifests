@@ -1,0 +1,3 @@
+Bridge tradfri:gateway:mygateway [ host="${TRADFRI_GATEWAY_IP}", code="${TRADFRI_GATEWAY_TOKEN}" ] {
+
+}

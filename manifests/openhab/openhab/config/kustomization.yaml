@@ -22,6 +22,7 @@ configMapGenerator:
   - things/dwdunwetter.things
   - things/ntp.things
   - things/fritzbox.things.template
+  - things/tradfri.things.template
 
 - name: openhab-config-items
   files:
