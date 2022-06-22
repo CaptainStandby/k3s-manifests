@@ -8,6 +8,9 @@ spec:
       initContainers:
       - image: ubuntu
         name: init-conf
+        securityContext:
+          runAsUser: 0
+          runAsGroup: 0
         env:
         - name: INFLUXDB_ADMIN_TOKEN
           valueFrom:
