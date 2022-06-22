@@ -31,9 +31,9 @@ Group gBockholz2Attic              "Bockholz 2 - Speicher"          <attic>    (
 
 
 // Outside
-Group gBockholz2Outdoor  "Bockholz 2 - Außenbereich" (gBockholz2)                                  ["Outdoor"]
-Group gBockholz2Driveway "Bockholz 2 - Parkplatz"    (gBockholz2Outdoor)                           ["Driveway"]
-Group gBockholz2Terrace  "Bockholz 2 - Terasse"      (gBockholz2Outdoor,gBockholzGarden) <terrace> ["Terrace"]
+Group gBockholz2Outdoor  "Bockholz 2 - Außenbereich" (gBockholz2)                  ["Outdoor"]
+Group gBockholz2Driveway "Bockholz 2 - Parkplatz"    (gBockholz2Outdoor)           ["Driveway"]
+Group gBockholz2Terrace  "Bockholz 2 - Terasse"      (gBockholz2Outdoor) <terrace> ["Terrace"]
 
 
 
