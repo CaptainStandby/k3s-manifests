@@ -29,6 +29,7 @@ configMapGenerator:
   - items/dwdunwetter.items
   - items/ntp.items
   - items/semantic_model.items
+  - items/heating.items
 
 - name: openhab-config-transform
   files:
