@@ -11,7 +11,7 @@ function get_ext {
 	[[ "$file" = *.* ]] && echo ".${file##*.}" || echo ''
 }
 
-find "$SRC_DIR/" -type f -print0 | while IFS= read -r -d $'\0' file; do
+find -L "$SRC_DIR/" -type f -not -xtype f -print0 | while IFS= read -r -d $'\0' file; do
 	file_name="$(basename "$file")"
 	ext="$(get_ext "$file_name")"
 	dir="$(dirname "$file")/"
