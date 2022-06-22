@@ -11,6 +11,7 @@ spec:
         securityContext:
           runAsUser: 0
           runAsGroup: 0
+          runAsNonRoot: false
         env:
         - name: INFLUXDB_ADMIN_TOKEN
           valueFrom:
