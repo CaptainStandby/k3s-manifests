@@ -1,3 +1,3 @@
-Bridge tradfri:gateway:mygateway [ host="${TRADFRI_GATEWAY_IP}", code="${TRADFRI_GATEWAY_TOKEN}" ] {
+Bridge tradfri:gateway:winnemark_tradfri "IKEA TRÅDFRI Gateway" [ host="${TRADFRI_GATEWAY_IP}", code="${TRADFRI_GATEWAY_TOKEN}" ] {
 
 }

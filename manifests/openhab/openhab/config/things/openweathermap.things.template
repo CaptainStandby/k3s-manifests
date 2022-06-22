@@ -1,0 +1,3 @@
+Bridge openweathermap:weather-api:api "OpenWeatherMap Account" [apikey="${OPENWEATHERMAP_API_KEY}", refreshInterval=15, language="de"] {
+    Thing weather-and-forecast local "Local Weather And Forecast" [location="54.605592965766085,9.931124214790525,16", forecastHours=12, forecastDays=7]
+}

@@ -1,5 +1,5 @@
 creation_rules:
   - path_regex: ^.*\.env$
-    encrypted_regex: '(password|PASSWORD|token|TOKEN)'
+    encrypted_regex: '(password|PASSWORD|token|TOKEN|key|KEY)'
     age: >-
       age1f4zuv5jzqt5ynk9he9jkxtv7cyads3nfaaa7rajukch273zu9dcst4kkag
