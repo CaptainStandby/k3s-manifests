@@ -21,6 +21,7 @@ configMapGenerator:
   - things/astro.things
   - things/dwdunwetter.things
   - things/ntp.things
+  - things/fritzbox.things.template
 
 - name: openhab-config-items
   files:
@@ -34,3 +35,6 @@ configMapGenerator:
   - transform/de.map
   - transform/dwdunwetter_de.map
   - transform/en.map
+
+resources:
+- secrets

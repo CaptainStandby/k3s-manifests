@@ -18,6 +18,9 @@ spec:
             secretKeyRef:
               name: influxdb-secrets
               key: admin.token
+        envFrom:
+        - secretKeyRef:
+            name: secrets
         command:
         - /bin/sh
         - -c

@@ -1,0 +1,3 @@
+Bridge avmfritz:fritzbox:winnemark_fb "FRITZ!Box 7530" [ ipAddress="${FRITZBOX_IP}", password="${FRITZBOX_PASSWORD}", user="${FRITZBOX_USER}" ] {
+    Thing FRITZ_DECT_301 thermostat_office "Thermostat Arbeitszimmer" @ "Office" [ ain="099950773293" ]
+}
