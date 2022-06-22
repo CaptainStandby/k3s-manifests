@@ -6,6 +6,9 @@ Bridge avmfritz:fritzbox:winnemark_fb "FRITZ!Box 7530" [ ipAddress="${FRITZBOX_I
     Thing FRITZ_DECT_301 thermostat_livingroom2 "Thermostat Wohnzimmer 2"  @ "LivingRoom" [ ain="099950726782" ]
     Thing FRITZ_DECT_301 thermostat_bedroom     "Thermostat Schlafzimmer"  @ "Bedroom"    [ ain="099950787451" ]
 
+    Thing FRITZ_GROUP_HEATING thermostats_livingroom "Thermostate Wohnzimmer" @ "LivingRoom" [ ain="grp7BF931-3C754AEFE" ]
+    Thing FRITZ_GROUP_HEATING thermostats_kitchen    "Thermostate Kueche"     @ "Kitchen"    [ ain="grp7BF931-3CD8E6196" ]
+
     Thing FRITZ_DECT_200 outlet_entry   "Steckdose Diele"         @ "Entry"     [ ain="116300292290" ]
     Thing FRITZ_DECT_200 outlet_office  "Steckdose Arbeitszimmer" @ "Office"    [ ain="116300285125" ]
     Thing FRITZ_DECT_200 outlet_guest   "Steckdose Gaestezimmer"  @ "GuestRoom" [ ain="116300292300" ]
