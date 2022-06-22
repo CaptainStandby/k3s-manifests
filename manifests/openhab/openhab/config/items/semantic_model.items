@@ -1,0 +1,53 @@
+Group gBockholz "Bockholz 2 & 4" <house> ["House"]
+
+Group gBockholzGarden "Bockholz - Garten" <garden> (gBockholz) ["Garden"]
+
+
+// Bockholz 2
+
+Group gBockholz2 "Bockholz 2" (gBockholz) ["Apartment"]
+
+// Inside
+Group gBockholz2Indoor      "Bockholz 2 - Innenraum"                  (gBockholz2)       ["Indoor"]
+Group gBockholz2GroundFloor "Bockholz 2 - Erdgeschoss"  <groundfloor> (gBockholz2Indoor) ["GroundFloor"]
+Group gBockholz2FirstFloor  "Bockholz 2 - Obergeschoss" <firstfloor>  (gBockholz2Indoor) ["FirstFloor"]
+
+// Ground Floor
+Group gBockholz2LivingRoom     "Bockholz 2 - Wohnzimmer"      <sofa>      (gBockholz2GroundFloor) ["LivingRoom"]
+Group gBockholz2Kitchen        "Bockholz 2 - Kueche"          <kitchen>   (gBockholz2GroundFloor) ["Kitchen"]
+Group gBockholz2Entry          "Bockholz 2 - Diele"           <frontdoor> (gBockholz2GroundFloor) ["Entry"]
+Group gBockholz2GroundCorridor "Bockholz 2 - Flur"            <corridor>  (gBockholz2GroundFloor) ["Corridor"]
+Group gBockholz2Bedroom        "Bockholz 2 - Schlafzimmer"    <bedroom>   (gBockholz2GroundFloor) ["Bedroom"]
+Group gBockholz2Bathroom       "Bockholz 2 - Badezimmer"      <bath>      (gBockholz2GroundFloor) ["Bathroom"]
+Group gBockholz2Pantry         "Bockholz 2 - Vorratskammer"   <pantry>    (gBockholz2GroundFloor) ["Room"]
+
+
+// First Floor
+Group gBockholz2GuestRoom          "Bockholz 2 - Gaestezimmer"      <bedroom>  (gBockholz2FirstFloor) ["GuestRoom"]
+Group gBockholz2Toilet             "Bockholz 2 - Toilette"          <toilet>   (gBockholz2FirstFloor) ["Bathroom"]
+Group gBockholz2Office             "Bockholz 2 - Arbeitszimmer"     <office>   (gBockholz2FirstFloor) ["Office"]
+Group gBockholz2FirstFloorCorridor "Bockholz 2 - Flur Obergeschoss" <corridor> (gBockholz2FirstFloor) ["Corridor"]
+Group gBockholz2Attic              "Bockholz 2 - Speicher"          <attic>    (gBockholz2FirstFloor) ["Attic"]
+
+
+// Outside
+Group gBockholz2Outdoor  "Bockholz 2 - Außenbereich" (gBockholz2)                                  ["Outdoor"]
+Group gBockholz2Driveway "Bockholz 2 - Parkplatz"    (gBockholz2Outdoor)                           ["Driveway"]
+Group gBockholz2Terrace  "Bockholz 2 - Terasse"      (gBockholz2Outdoor,gBockholzGarden) <terrace> ["Terrace"]
+
+
+
+// Bockholz 4
+
+Group gBockholz4 "Bockholz 4" ["Apartment"]
+
+// Inside
+Group gBockholz4Indoor      "Bockholz 4 - Innenraum"                  (gBockholz4)       ["Indoor"]
+Group gBockholz4GroundFloor "Bockholz 4 - Erdgeschoss"  <groundfloor> (gBockholz4Indoor) ["GroundFloor"]
+Group gBockholz4FirstFloor  "Bockholz 4 - Obergeschoss" <firstfloor>  (gBockholz4Indoor) ["FirstFloor"]
+
+// Outside
+Group gBockholz4Outdoor  "Bockholz 4 - Außenbereich" (gBockholz4)        ["Outdoor"]
+Group gBockholz4Driveway "Bockholz 4 - Parkplatz"    (gBockholz4Outdoor) ["Driveway"]
+
+
