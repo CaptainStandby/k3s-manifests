@@ -24,6 +24,9 @@ spec:
         - >-
           export DEBIAN_FRONTEND=noninteractive ;
           apt-get update && apt-get -y install --no-install-recommends gettext-base tree &&
+          ls -la /src-conf &&
+          tree /src-conf &&
+          tree /dst-conf &&
           /init-scripts/init_config.sh /src-conf /dst-conf ;
           echo "finished" ;
           tree /dst-conf
