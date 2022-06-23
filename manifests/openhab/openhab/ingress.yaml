@@ -2,9 +2,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: openhab
-  annotations:
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "21600"
-    nginx.ingress.kubernetes.io/eventsource: "true"
 spec:
   ingressClassName: nginx
   rules:
