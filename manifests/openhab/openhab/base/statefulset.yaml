@@ -49,8 +49,8 @@ spec:
             port: http
         startupProbe:
           initialDelaySeconds: 30
-          periodSeconds: 10
-          failureThreshold: 18
+          periodSeconds: 15
+          failureThreshold: 20
           timeoutSeconds: 5
           httpGet:
             path: /
