@@ -2,21 +2,21 @@ Group Thermostats <heating>
 Group KitchenThermostats <heating>
 
 
-Group KitchenHeating                                                                      <heating>     (gBockholz2Kitchen) ["HVAC"]
+Group KitchenHeating                                                                      <heating>     (gBockholz2Kitchen)
 Group:Number:AVG Kitchen_Current_Temperature "Current measured temperature [%.1f %unit%]" <temperature> (KitchenHeating)    ["Measurement","Temperature"]
-Group:Number:AVG Kitchen_Target_Temperature  "Target temperature [%.1f %unit%]"           <temperature> (KitchenHeating)    ["Temperature"]
+Group:Number:AVG Kitchen_Target_Temperature  "Target temperature [%.1f %unit%]"           <temperature> (KitchenHeating)    ["Temperature","Setpoint"]
 
 
 Group Thermostat_Kitchen_1               <heating>     (KitchenHeating,Thermostats,KitchenThermostats)    ["RadiatorControl"]
 Number:Temperature Kitchen_Temperature_1 <temperature> (Kitchen_Current_Temperature,Thermostat_Kitchen_1) ["Measurement","Temperature"] { channel="avmfritz:FRITZ_DECT_301:winnemark_fb:thermostat_kitchen1:temperature" }
 Number Kitchen_Battery_1                 <battery>     (Thermostat_Kitchen_1)                             ["Measurement","Energy"]      { channel="avmfritz:FRITZ_DECT_301:winnemark_fb:thermostat_kitchen1:battery_level" }
-Number Kitchen_TargetTemperatur_1        <heating>     (Kitchen_Target_Temperature,Thermostat_Kitchen_1)  ["Temperature"]               { channel="avmfritz:FRITZ_DECT_301:winnemark_fb:thermostat_kitchen1:set_temp" }
+Number Kitchen_TargetTemperatur_1        <heating>     (Kitchen_Target_Temperature,Thermostat_Kitchen_1)  ["Temperature","Setpoint"]    { channel="avmfritz:FRITZ_DECT_301:winnemark_fb:thermostat_kitchen1:set_temp" }
 
 
 Group Thermostat_Kitchen_2               <heating>     (KitchenHeating,Thermostats,KitchenThermostats)    ["RadiatorControl"]
 Number:Temperature Kitchen_Temperature_2 <temperature> (Kitchen_Current_Temperature,Thermostat_Kitchen_2) ["Measurement","Temperature"] { channel="avmfritz:FRITZ_DECT_301:winnemark_fb:thermostat_kitchen2:temperature" }
 Number Kitchen_Battery_2                 <battery>     (Thermostat_Kitchen_2)                             ["Measurement","Energy"]      { channel="avmfritz:FRITZ_DECT_301:winnemark_fb:thermostat_kitchen2:battery_level" }
-Number Kitchen_TargetTemperatur_2        <heating>     (Kitchen_Target_Temperature,Thermostat_Kitchen_2)  ["Temperature"]               { channel="avmfritz:FRITZ_DECT_301:winnemark_fb:thermostat_kitchen2:set_temp" }
+Number Kitchen_TargetTemperatur_2        <heating>     (Kitchen_Target_Temperature,Thermostat_Kitchen_2)  ["Temperature","Setpoint"]    { channel="avmfritz:FRITZ_DECT_301:winnemark_fb:thermostat_kitchen2:set_temp" }
 
 
 
