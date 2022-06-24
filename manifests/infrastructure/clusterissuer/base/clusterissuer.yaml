@@ -12,7 +12,7 @@ spec:
       dns01:
         route53:
           region: eu-central-1
-          accessKeyID: AKIAIOSFODNN7EXAMPLE
+          accessKeyID: AKIAWI6SWIKNNKREPZVM
           secretAccessKeySecretRef:
             name: clusterissuer-secrets
             key: aws.dns01.access_key_secret
