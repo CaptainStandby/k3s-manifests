@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt
+spec:
+  acme:
+    email: 18215579+CaptainStandby@users.noreply.github.com
+    solvers:
+    - selector:
+        dnsZones:
+          - cluster.hlnr.de
+      dns01:
+        route53:
+          region: eu-central-1
+          accessKeyID: AKIAIOSFODNN7EXAMPLE
+          secretAccessKeySecretRef:
+            name: clusterissuer-secrets
+            key: aws.dns01.access_key_secret

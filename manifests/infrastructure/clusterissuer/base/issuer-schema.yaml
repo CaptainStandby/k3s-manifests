@@ -1,0 +1,6 @@
+
+nameReference:
+- kind: Secret
+  fieldSpecs:
+    - path: spec/acme/solvers/dns01/route53/secretAccessKeySecretRef/name
+      kind: ClusterIssuer

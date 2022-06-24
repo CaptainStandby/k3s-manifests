@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: infrastructure
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - PruneLast=true
+
+  source:
+    repoURL: https://github.com/CaptainStandby/k3s-manifests.git
+    targetRevision: main
+    path: manifests/infrastructure
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
