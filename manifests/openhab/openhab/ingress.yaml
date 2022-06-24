@@ -2,10 +2,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: openhab
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
 spec:
   ingressClassName: nginx
+  tls:
+  - secretName: openhab-ingress-tls
+    hosts:
+    - &hostname openhab.cluster.hlnr.de
   rules:
-  - host: openhab.cluster.hlnr.de
+  - host: *hostname
     http:
       paths:
       - path: /
