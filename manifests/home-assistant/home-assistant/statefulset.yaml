@@ -9,9 +9,9 @@ spec:
       securityContext:
         seccompProfile:
           type: RuntimeDefault
-        fsGroup: 1000
-        runAsGroup: 1000
-        runAsUser: 1000
+        # fsGroup: 1000
+        # runAsGroup: 1000
+        # runAsUser: 1000
       containers:
       - image: homeassistant/home-assistant
         name: home-assistant
@@ -19,7 +19,7 @@ spec:
           - name: TZ
             value: Europe/Berlin
         securityContext:
-          runAsNonRoot: true
+          # runAsNonRoot: true
           privileged: false
           allowPrivilegeEscalation: false
           capabilities:
