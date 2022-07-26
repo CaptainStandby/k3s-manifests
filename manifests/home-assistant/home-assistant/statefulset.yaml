@@ -9,9 +9,9 @@ spec:
       securityContext:
         seccompProfile:
           type: RuntimeDefault
-        # fsGroup: 9001
-        # runAsGroup: 9001
-        # runAsUser: 9001
+        fsGroup: 1000
+        runAsGroup: 1000
+        runAsUser: 1000
       containers:
       - image: homeassistant/home-assistant
         name: home-assistant
