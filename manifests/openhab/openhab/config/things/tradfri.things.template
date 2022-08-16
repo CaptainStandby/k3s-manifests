@@ -1,17 +1,17 @@
 Bridge tradfri:gateway:winnemark_tradfri "IKEA TRÅDFRI Gateway" [ host="${TRADFRI_GATEWAY_IP}", code="${TRADFRI_GATEWAY_TOKEN}" ] {
-    Thing 0220 light_driveway_1 "Eingang Aussen 1" [ id=65537 ]
-    Thing 0220 light_driveway_2 "Eingang Aussen 2" [ id=65539 ]
+    Thing 0220 light_driveway_1 "Eingang Außen 1" [ id=65537 ]
+    Thing 0220 light_driveway_2 "Eingang Außen 2" [ id=65539 ]
 
     Thing 0220 light_entry_1 "Diele" [ id=65542 ]
 
-    Thing 0220 light_kitchen_1 "Kueche" [ id=65544 ]
+    Thing 0220 light_kitchen_1 "Küche" [ id=65544 ]
 
     Thing 0220 light_bedroom_1 "Schlafzimmer" [ id=65543 ]
 
     Thing 0220 light_ff_corridor "Stehleuchte oben" [ id=65548 ]
 
-    Thing 0220 light_terrace_1 "Kueche Aussen bei Nr. 2" [ id=65547 ]
-    Thing 0220 light_garden_1  "Kueche Aussen bei Nr. 4" [ id=65549 ]
+    Thing 0220 light_terrace_1 "Küche Außen bei Nr. 2" [ id=65547 ]
+    Thing 0220 light_garden_1  "Küche Außen bei Nr. 4" [ id=65549 ]
 
     Thing 0100 light_flamingo "Flamingolampe" [ id=65551 ]
     Thing 0220 light_living_1 "Wohnzimmer 1"  [ id=65540 ]

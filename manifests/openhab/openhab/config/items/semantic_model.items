@@ -14,7 +14,7 @@ Group gBockholz2FirstFloor  "Bockholz 2 - Obergeschoss" <firstfloor>  (gBockholz
 
 // Ground Floor
 Group gBockholz2LivingRoom     "Bockholz 2 - Wohnzimmer"      <sofa>      (gBockholz2GroundFloor) ["LivingRoom"]
-Group gBockholz2Kitchen        "Bockholz 2 - Kueche"          <kitchen>   (gBockholz2GroundFloor) ["Kitchen"]
+Group gBockholz2Kitchen        "Bockholz 2 - Küche"           <kitchen>   (gBockholz2GroundFloor) ["Kitchen"]
 Group gBockholz2Entry          "Bockholz 2 - Diele"           <frontdoor> (gBockholz2GroundFloor) ["Entry"]
 Group gBockholz2GroundCorridor "Bockholz 2 - Flur"            <corridor>  (gBockholz2GroundFloor) ["Corridor"]
 Group gBockholz2Bedroom        "Bockholz 2 - Schlafzimmer"    <bedroom>   (gBockholz2GroundFloor) ["Bedroom"]
@@ -23,7 +23,7 @@ Group gBockholz2Pantry         "Bockholz 2 - Vorratskammer"   <pantry>    (gBock
 
 
 // First Floor
-Group gBockholz2GuestRoom          "Bockholz 2 - Gaestezimmer"      <bedroom>  (gBockholz2FirstFloor) ["GuestRoom"]
+Group gBockholz2GuestRoom          "Bockholz 2 - Gästezimmer"       <bedroom>  (gBockholz2FirstFloor) ["GuestRoom"]
 Group gBockholz2Toilet             "Bockholz 2 - Toilette"          <toilet>   (gBockholz2FirstFloor) ["Bathroom"]
 Group gBockholz2Office             "Bockholz 2 - Arbeitszimmer"     <office>   (gBockholz2FirstFloor) ["Office"]
 Group gBockholz2FirstFloorCorridor "Bockholz 2 - Flur Obergeschoss" <corridor> (gBockholz2FirstFloor) ["Corridor"]
