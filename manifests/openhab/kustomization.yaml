@@ -11,6 +11,6 @@ namespace: openhab
 
 images:
 - name: openhab/openhab
-  newTag: 3.2.0-debian
+  newTag: 3.3.0-debian
 - name: influxdb
   newTag: 2.3.0-alpine
