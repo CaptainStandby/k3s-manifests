@@ -3,8 +3,8 @@ Group KitchenThermostats <heating>
 
 
 Group KitchenHeating                                                                      <heating>     (gBockholz2Kitchen)
-Group:Number:AVG Kitchen_Current_Temperature "Current measured temperature [%.1f %unit%]" <temperature> (KitchenHeating)    ["Measurement","Temperature"]
-Group:Number:AVG Kitchen_Target_Temperature  "Target temperature [%.1f %unit%]"           <temperature> (KitchenHeating)    ["Temperature","Setpoint"]
+Group:Number:AVG Kitchen_Current_Temperature "Current measured temperature [%.1f %unit%]" <temperature> (KitchenHeating,gBockholz2Kitchen)    ["Measurement","Temperature"]
+Group:Number:AVG Kitchen_Target_Temperature  "Target temperature [%.1f %unit%]"           <temperature> (KitchenHeating,gBockholz2Kitchen)    ["Temperature","Setpoint"]
 
 
 Group Thermostat_Kitchen_1               <heating>     (KitchenHeating,Thermostats,KitchenThermostats,gBockholz2Kitchen)    ["RadiatorControl"]
