@@ -8,8 +8,6 @@ resources:
 - base
 - config
 - ingress.yaml
-- volume-claims.yaml
 
 patches:
 - add-config.yaml
-- add-pvc.yaml

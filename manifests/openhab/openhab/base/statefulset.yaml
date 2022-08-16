@@ -63,3 +63,10 @@ spec:
           mountPath: /openhab/userdata
         - name: addons
           mountPath: /openhab/addons
+      volumes:
+      - name: userdata
+        emptyDir:
+          medium: Memory
+      - name: addons
+        emptyDir:
+          medium: Memory
