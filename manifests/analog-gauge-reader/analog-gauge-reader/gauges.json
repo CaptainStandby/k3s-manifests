@@ -9,7 +9,7 @@
 		},
 		"angles": {
 			"min": 50,
-			"max": 317
+			"max": 315
 		},
 		"values": {
 			"min": 0,
@@ -28,8 +28,8 @@
 			"height": 495
 		},
 		"angles": {
-			"min": 47,
-			"max": 308
+			"min": 35,
+			"max": 307
 		},
 		"values": {
 			"min": 0,
