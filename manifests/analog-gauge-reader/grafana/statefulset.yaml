@@ -6,6 +6,7 @@ spec:
   serviceName: grafana
   template:
     spec:
+      serviceAccountName: grafana
       securityContext:
         seccompProfile:
           type: RuntimeDefault
@@ -14,38 +15,57 @@ spec:
         runAsUser: 472
         runAsNonRoot: true
       containers:
-      - image: grafana/grafana-oss
-        name: grafana
-        ports:
-        - name: http
-          containerPort: 3000
-        volumeMounts:
-        - name: datasources
-          mountPath: /etc/grafana/provisioning/datasources
-        - name: dashboards
-          mountPath: /etc/grafana/provisioning/dashboards
-        - name: config
-          mountPath: /etc/grafana/grafana.ini
-          subPath: grafana.ini
-        - name: data
-          mountPath: /var/lib/grafana
-        securityContext:
-          privileged: false
-          allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: true
-          capabilities:
-            drop:
-            - all
+        - image: grafana/grafana-oss
+          name: grafana
+          ports:
+            - name: http
+              containerPort: 3000
+          volumeMounts:
+            - name: datasources
+              mountPath: /etc/grafana/provisioning/datasources
+            - name: dashboards
+              mountPath: /etc/grafana/provisioning/dashboards
+            - name: config
+              mountPath: /etc/grafana/grafana.ini
+              subPath: grafana.ini
+            - name: data
+              mountPath: /var/lib/grafana
+          securityContext:
+            privileged: false
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - all
+
+        - name: tailscale-sidecar
+          imagePullPolicy: Always
+          image: tailscale/tailscale
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+          env:
+            # Store the state in a k8s secret
+            - name: TS_KUBE_SECRET
+              value: tailscale-state
+            - name: TS_USERSPACE
+              value: "true"
+            - name: TS_AUTHKEY
+              valueFrom:
+                secretKeyRef:
+                  name: tailscale-auth
+                  key: TS_AUTHKEY
+
       volumes:
-      - name: config
-        configMap:
-          name: grafana-config
-      - name: dashboards
-        configMap:
-          name: grafana-dashboards
-      - name: datasources
-        configMap:
-          name: grafana-datasources
-      - name: data
-        persistentVolumeClaim:
-          claimName: grafana-pvc-data
+        - name: config
+          configMap:
+            name: grafana-config
+        - name: dashboards
+          configMap:
+            name: grafana-dashboards
+        - name: datasources
+          configMap:
+            name: grafana-datasources
+        - name: data
+          persistentVolumeClaim:
+            claimName: grafana-pvc-data

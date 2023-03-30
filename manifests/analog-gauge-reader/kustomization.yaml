@@ -2,18 +2,21 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- analog-gauge-reader
-- prometheus
-- grafana
-- namespace.yaml
+  - analog-gauge-reader
+  - prometheus
+  - grafana
+  - namespace.yaml
 
 namespace: analog-gauge-reader
 
 images:
-- name: captainstandby/analog_gauge_reader
-  newName: ghcr.io/captainstandby/analog_gauge_reader:master
-  digest: sha256:d683fa9bbb5cd97abf317fc147c4bf5313feebebb122ce6ed0dbf051f471aeac
-- name: prom/prometheus
-  newTag: v2.36.2
-- name: grafana/grafana-oss
-  newTag: 9.0.1
+  - name: captainstandby/analog_gauge_reader
+    newName: ghcr.io/captainstandby/analog_gauge_reader:master
+    digest: sha256:d683fa9bbb5cd97abf317fc147c4bf5313feebebb122ce6ed0dbf051f471aeac
+  - name: prom/prometheus
+    newTag: v2.36.2
+  - name: grafana/grafana-oss
+    newTag: 9.0.1
+  - name: tailscale/tailscale
+    newName: ghcr.io/tailscale/tailscale:v1.38.2
+    digest: sha256:079c2329416389297b6ba26341ea04796792513d0f29d54d2f5e3629355f0ee9

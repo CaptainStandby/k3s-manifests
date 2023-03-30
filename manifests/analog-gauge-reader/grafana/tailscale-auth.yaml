@@ -1,0 +1,19 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/namespace-wide: "true"
+  creationTimestamp: null
+  name: tailscale-auth
+  namespace: analog-gauge-reader
+spec:
+  encryptedData:
+    TS_AUTHKEY: AgAGxHm9oohpBfiOTyCM5mFaD0+fvbwWLcj86m0yfYKBPBo1PhZ1o+7iNUQ6Cn2OXAneFJlOrItCuvpfgczYXKeXw6HFu0+HHKuv5iym3zeBS3ZOVrBvxJ/qTWPWPq14Ur+1ZzRshQQTykWw8tIVWRvYpiR6cOSUXjIfVU2XzFvmTaZk5606CYFUQ86HAZyWCNO9ohGOcYI8KhPfHlgsguOtnUhz6OXpVocIrh8qvgcASD8jE2f8UfZnhuiGaJBj0WnkOMmz2NMSEhojj0o26sLhIJI08GNkL4OnUGLe4z0GkkrmH3Nn5gZIoErQkwh/QZo9h/EAw90N3JrBZU60od0hyz6NYieJs4XQbEYjVuQT7S0nnJtEeUDJMlLwiYgL28IB8StEhpURCfpaqmq6/EJ04HGZbVKXQJTEd+XZ0P6/M2UvsOZAxPDT5Gz8D7M6p6PlHSivFACpsPsMbAUzUJfRaruVKaULRaGUJGEBWc/C4svWyYe08ifq6ryFj2pJZwveVgtFkWacFvWNZUJiknLbR6mGxImiIdJXMj1/RbV1DOJg/DfuhqqsLA+giMXYHA8QlTYz2rR4Whkzl6I+MPT2+by1F4ljjb1+PwPSvufREAPifTkJY6r8Jf+RFibBAZlFiVCC91fkhyLNtp0gyOEazhTig2aalq33gl6I+EygPsf5LQ4UFX51gHzPXeC0kBN9Z+bqakAVZxYmYliVmrprbpkUKTN0nipaKlMImRn9ocsj2/R1IDq+BT7JMDMR0ptefkyKfAOlAOM=
+  template:
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/namespace-wide: "true"
+      creationTimestamp: null
+      name: tailscale-auth
+      namespace: analog-gauge-reader
+
