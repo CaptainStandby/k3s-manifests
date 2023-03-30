@@ -18,5 +18,5 @@ images:
   - name: grafana/grafana-oss
     newTag: 9.0.1
   - name: tailscale/tailscale
-    newName: ghcr.io/tailscale/tailscale:v1.38.2
-    digest: sha256:079c2329416389297b6ba26341ea04796792513d0f29d54d2f5e3629355f0ee9
+    newName: ghcr.io/tailscale/tailscale:v1.38.3
+    digest: sha256:58e0f0debe050efd6b702ca3f65f33826a5a532dc7236272f37541270caa6a00
